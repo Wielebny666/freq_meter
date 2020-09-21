@@ -1,0 +1,14 @@
+menu "Frequency Meter Configuration"
+
+    config FM_SAMPLE_TIME
+        int "Frequency Meter sample time [ms]"
+        default 50
+        range 1 1000
+        help
+            Frequency Meter sample time in ms.
+
+	config FM_CONTROL_PIN
+		int "Frequency Meter sample control pin"
+		range 0 39
+		default 32
+endmenu

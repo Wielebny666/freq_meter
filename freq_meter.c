@@ -1,5 +1,5 @@
 /*
- * freq_cnt.c
+ * freq_meter.c
  *
  *  Created on: 6 maj 2020
  *      Author: kurzawa.p
@@ -234,7 +234,11 @@ esp_err_t freq_meter_add_pin(fm_handle_t const fm_handle, uint8_t input_io_num, 
 	return ESP_OK;
 }
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Wielebny666/freq_meter.git
 esp_err_t freq_meter_measure_finish_add_callback(fm_handle_t const fm_handle, measure_finish_cb_t cb)
+=======
+esp_err_t freq_meter_measure_finish_add_callback(fm_handle_t const fm_handle, measure_finish_callback_t cb)
+>>>>>>> 98c5adb Konfiguracja do kconfig
 {
 	ESP_LOGD(TAG, "%s", __FUNCTION__);
 	IOT_CHECK(TAG, fm_handle != NULL, ESP_ERR_INVALID_ARG);

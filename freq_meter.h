@@ -23,8 +23,7 @@ extern "C" {
  *      DEFINES
  *********************/
 #define FM_PIN_MAX (2)
-#define FM_MEASURE_CONTROL_PIN GPIO_NUM_32
-
+#define FM_MEASURE_CONTROL_PIN CONFIG_FM_CONTROL_PIN
 
 #define PCNT_UNIT (PCNT_UNIT_0)
 #define PCNT_CHANNEL (PCNT_CHANNEL_0)
@@ -38,7 +37,7 @@ extern "C" {
 // For higher expected frequencies, the sample period and filter must be reduced.
 
 // suitable up to 163,835 Hz
-#define WINDOW_DURATION (0.05F) //0.5 // seconds
+#define WINDOW_DURATION  (CONFIG_FM_SAMPLE_TIME / 1000.0F)// (0.05F) //0.5 // seconds
 #define FILTER_LENGTH 1      // APB @ 80MHz, limits to < 655,738 Hz
 
 #if (FILTER_LENGTH > 1023)
@@ -49,7 +48,7 @@ extern "C" {
  *      TYPEDEFS
  **********************/
 typedef void *fm_handle_t;
-typedef void (* measure_finish_cb_t)(uint8_t input, double freq_hz);
+typedef void (* measure_finish_callback_t)(uint8_t input, double freq_hz);
 
 /**********************
  * GLOBAL PROTOTYPES
@@ -58,7 +57,11 @@ fm_handle_t *freq_meter_create(rmt_channel_t rmt_channel, uint8_t rmt_clk_div, f
 esp_err_t freq_meter_destroy(fm_handle_t const fm_handle);
 esp_err_t freq_meter_add_pin(fm_handle_t const fm_handle, uint8_t io_num, pcnt_unit_t pcnt_unit, pcnt_channel_t pcnt_channel, uint16_t filter_length);
 esp_err_t freq_meter_measure_start(fm_handle_t const fm_handle);
+<<<<<<< Upstream, based on branch 'master' of https://github.com/Wielebny666/freq_meter.git
 esp_err_t freq_meter_measure_finish_add_callback(fm_handle_t const fm_handle, measure_finish_cb_t cb);
+=======
+esp_err_t freq_meter_measure_finish_add_callback(fm_handle_t const fm_handle, measure_finish_callback_t cb);
+>>>>>>> 98c5adb Konfiguracja do kconfig
 
 /**********************
  *      MACROS
