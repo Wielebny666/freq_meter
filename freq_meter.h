@@ -56,9 +56,9 @@ typedef void (* measure_finish_cb_t)(uint8_t input, double freq_hz);
  **********************/
 fm_handle_t *freq_meter_create(rmt_channel_t rmt_channel, uint8_t rmt_clk_div, float sampling_window_seconds, uint8_t pin_ctrl);
 esp_err_t freq_meter_destroy(fm_handle_t const fm_handle);
-esp_err_t freq_meter_pin_add(fm_handle_t const fm_handle, uint8_t io_num, pcnt_unit_t pcnt_unit, pcnt_channel_t pcnt_channel, uint16_t filter_length);
+esp_err_t freq_meter_add_pin(fm_handle_t const fm_handle, uint8_t io_num, pcnt_unit_t pcnt_unit, pcnt_channel_t pcnt_channel, uint16_t filter_length);
 esp_err_t freq_meter_measure_start(fm_handle_t const fm_handle);
-esp_err_t freq_meter_measure_finish_add_cb(fm_handle_t const fm_handle, measure_finish_cb_t cb);
+esp_err_t freq_meter_measure_finish_add_callback(fm_handle_t const fm_handle, measure_finish_cb_t cb);
 
 /**********************
  *      MACROS

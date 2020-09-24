@@ -199,7 +199,7 @@ esp_err_t freq_meter_destroy(fm_handle_t const fm_handle)
  *     - ESP_ERR_NOT_FOUND measure input slots full
  *     - ESP_OK Success
  */
-esp_err_t freq_meter_pin_add(fm_handle_t const fm_handle, uint8_t input_io_num, pcnt_unit_t pcnt_unit, pcnt_channel_t pcnt_channel, uint16_t filter_length)
+esp_err_t freq_meter_add_pin(fm_handle_t const fm_handle, uint8_t input_io_num, pcnt_unit_t pcnt_unit, pcnt_channel_t pcnt_channel, uint16_t filter_length)
 {
 	ESP_LOGD(TAG, "%s", __FUNCTION__);
 	IOT_CHECK(TAG, fm_handle != NULL, ESP_ERR_INVALID_ARG);
@@ -235,7 +235,7 @@ esp_err_t freq_meter_pin_add(fm_handle_t const fm_handle, uint8_t input_io_num, 
 	return ESP_OK;
 }
 
-esp_err_t freq_meter_measure_finish_add_cb(fm_handle_t const fm_handle, measure_finish_cb_t cb)
+esp_err_t freq_meter_measure_finish_add_callback(fm_handle_t const fm_handle, measure_finish_cb_t cb)
 {
 	ESP_LOGD(TAG, "%s", __FUNCTION__);
 	IOT_CHECK(TAG, fm_handle != NULL, ESP_ERR_INVALID_ARG);
